@@ -3,5 +3,57 @@ layout: layout.liquid
 title: 11ty Boilerplate
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<!-- First Product -->
+<div class="m-4 p-4 border rounded-lg shadow-lg flex flex-col items-center">
+    <div x-data="{ thumbImage: $fetchjson('https://dummyjson.com/products/1', jsonitem='thumbnail') }">
+        <img class="w-auto h-auto max-w-full object-contain" alt="thumbnail" x-bind:src="thumbImage"/>
+    </div>
+
+    <div x-data="{ productName: $fetchjson('https://dummyjson.com/products/1', jsonitem='title') }">
+        <h2 class="text-xl font-bold mt-2" x-text="productName"></h2>
+    </div>
+
+    <div x-data="{ productDesc: $fetchjson('https://dummyjson.com/products/1', jsonitem='description') }">
+        <p class="mt-2" x-text="productDesc"></p>
+    </div>
+</div>
+
+<!-- Second Product -->
+<div class="m-4 p-4 border rounded-lg shadow-lg flex flex-col items-center">
+    <div x-data="{ thumbImage: $fetchjson('https://dummyjson.com/products/2', jsonitem='thumbnail') }">
+        <img class="w-auto h-auto max-w-full object-contain" alt="thumbnail" x-bind:src="thumbImage"/>
+    </div>
+
+    <div x-data="{ productName: $fetchjson('https://dummyjson.com/products/2', jsonitem='title') }">
+        <h2 class="text-xl font-bold mt-2" x-text="productName"></h2>
+    </div>
+
+    <div x-data="{ productDesc: $fetchjson('https://dummyjson.com/products/2', jsonitem='description') }">
+        <p class="mt-2" x-text="productDesc"></p>
+    </div>
+</div>
+
+
+
+
+<!--
+
+<div id="thumbnailContainer">
+    <img id="thumbnailImage" alt="thumbnail">
+</div>
+
+
+<script>
+    // Fetch data from the URL and set the thumbnail image source
+    fetch('https://dummyjson.com/products/1')
+        .then(response => response.json()) // Parse JSON response
+        .then(data => {
+            // Extract the thumbnail URL from the JSON data
+            const thumbImage = data.thumbnail;
+            // Set the src attribute of the image element
+            document.getElementById('thumbnailImage').src = thumbImage;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+</script>
+
+-->
